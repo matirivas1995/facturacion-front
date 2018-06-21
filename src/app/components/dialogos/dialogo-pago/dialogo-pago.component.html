@@ -1,3 +1,48 @@
-<p>
-  dialogo-pago works!
-</p>
+<button mat-icon-button style="float:right" (click)="close()" matTooltip="Cerrar">
+  <mat-icon class="md-24">close</mat-icon>
+</button>
+<h2 mat-dialog-title>Pago</h2>
+
+<mat-dialog-content [formGroup]="form" novalidate>
+<mat-list>
+
+  <mat-form-field>
+      <input matInput
+              placeholder="Monto"  
+              formControlName="Monto">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput
+            placeholder="Fecha"  
+            formControlName="Fecha">
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput
+          placeholder="Porcentaje"  
+          formControlName="Porcentaje">
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput
+          placeholder="Estado"  
+          formControlName="Estado">
+</mat-form-field>
+
+
+</mat-list>
+
+</mat-dialog-content>
+
+<mat-dialog-actions style="float: right">
+
+<button mat-icon-button (click)="save()" [disabled]="!form.valid" matTooltip="Guardar cambios">
+  <mat-icon class="md-24">save</mat-icon>
+</button>
+
+<button mat-icon-button  *ngIf="pago.id != null" (click)="delete()" matTooltip="Borrar"> 
+  <mat-icon class="md-24">delete</mat-icon>
+</button>
+
+</mat-dialog-actions>
