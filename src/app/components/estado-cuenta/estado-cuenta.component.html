@@ -1,0 +1,51 @@
+<mat-card>
+
+  <button mat-fab class="page-action" id="add" color="primary" (click)="crear()" >
+      <mat-icon class="md-24">add</mat-icon>
+  </button>
+
+<mat-card-title>Estados de cuenta</mat-card-title>
+
+<mat-card-content>
+
+    <mat-table [dataSource]='estados'>
+
+      <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+          <mat-cell *matCellDef="let estado"> {{estado.id}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="cuotasTotales">
+          <mat-header-cell *matHeaderCellDef>Total de cuotas</mat-header-cell>
+          <mat-cell *matCellDef="let estado"> {{estado.cuotasTotales}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="cuotasPagadas">
+          <mat-header-cell *matHeaderCellDef>Total de cuotas Pagadas</mat-header-cell>
+          <mat-cell *matCellDef="let estado"> {{estado.cuotasPagadas}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="montoTotal">
+          <mat-header-cell *matHeaderCellDef>Monto total </mat-header-cell>
+          <mat-cell *matCellDef="let estado"> {{estado.montoTotal | currency }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="pagado">
+          <mat-header-cell *matHeaderCellDef>Pagado</mat-header-cell>
+          <mat-cell *matCellDef="let estado"> {{estado.pagado | currency }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="saldo">
+          <mat-header-cell *matHeaderCellDef>Saldo</mat-header-cell>
+          <mat-cell *matCellDef="let estado"> {{estado.saldo | currency }} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+      
+      <mat-row *matRowDef="let fila; columns: columnsToDisplay" class="fila"></mat-row>
+      
+    </mat-table>
+
+</mat-card-content>
+
+</mat-card>

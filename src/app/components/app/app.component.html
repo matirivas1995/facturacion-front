@@ -1,0 +1,43 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav class="sidenav">
+    <mat-nav-list>
+      <a mat-list-item (click)="sidenav.close()" [routerLink]="['/']">
+        <mat-icon mat-list-icon>home</mat-icon>
+        <span mat-line>Inicio</span>
+      </a>
+      <a mat-list-item (click)="sidenav.close()" [routerLink]="['/clientes']">
+        <mat-icon mat-list-icon>list</mat-icon>
+        <span mat-line>Clientes</span>
+      </a>
+      <a mat-list-item (click)="sidenav.close()" [routerLink]="['/estados']">
+        <mat-icon mat-list-icon>list</mat-icon>
+        <span mat-line>Estados de Cuenta</span>
+      </a>
+      <a mat-list-item (click)="sidenav.close()" [routerLink]="['/pagos']">
+        <mat-icon mat-list-icon>list</mat-icon>
+        <span mat-line>Pagos</span>
+      </a>
+      <a mat-list-item (click)="sidenav.close()" [routerLink]="['/contratos']">
+        <mat-icon mat-list-icon>list</mat-icon>
+        <span mat-line>Contratos</span>
+      </a>
+      <a mat-list-item (click)="sidenav.close()" [routerLink]="['/facturas']">
+        <mat-icon mat-list-icon>list</mat-icon>
+        <span mat-line>Facturas Emitidas</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <div class="my-content">
+      <mat-toolbar color="primary">
+        <button mat-icon-button (click)="sidenav.open()" matTooltip="Menu">
+          <mat-icon>menu</mat-icon>
+        </button>
+
+        <span>{{title}}</span>
+        <span class="fill-remaining-space"></span>
+        <span>Sistema de Facturacion</span>
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+    </div>
+</mat-sidenav-container>

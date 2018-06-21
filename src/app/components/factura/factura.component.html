@@ -1,0 +1,51 @@
+<mat-card>
+
+  <button mat-fab class="page-action" id="add" color="primary" (click)="crear()" >
+      <mat-icon class="md-24">add</mat-icon>
+  </button>
+
+<mat-card-title>Facturas Emitidas</mat-card-title>
+
+<mat-card-content>
+
+    <mat-table [dataSource]='facturas'>
+
+      <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+          <mat-cell *matCellDef="let factura"> {{factura.id}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="nroFactura">
+          <mat-header-cell *matHeaderCellDef>Nro de Factura</mat-header-cell>
+          <mat-cell *matCellDef="let factura"> {{factura.nroFactura}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="contrato">
+          <mat-header-cell *matHeaderCellDef>Cliente</mat-header-cell>
+          <mat-cell *matCellDef="let factura"> {{factura.contrato.cliente.razonSocial}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="montoTotal">
+          <mat-header-cell *matHeaderCellDef>Monto Total </mat-header-cell>
+          <mat-cell *matCellDef="let factura"> {{factura.montoTotal | currency }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="descripcion">
+        <mat-header-cell *matHeaderCellDef>Descripcion</mat-header-cell>
+        <mat-cell *matCellDef="let factura"> {{factura.descripcion}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="fecha">
+        <mat-header-cell *matHeaderCellDef>Fecha</mat-header-cell>
+        <mat-cell *matCellDef="let factura"> {{factura.fecha}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+      
+      <mat-row *matRowDef="let fila; columns: columnsToDisplay" class="fila"></mat-row>
+      
+    </mat-table>
+
+</mat-card-content>
+
+</mat-card>
