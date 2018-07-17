@@ -46,8 +46,8 @@ export class ClienteComponent implements OnInit {
             console.log('Creando ', data);
             this.clienteService.create(data.cliente)
             .then((response) => {
-              if (response.ok) {
-                console.log('Cliente ' + data.cliente.id + ' creado');
+              if (response.id) {
+                console.log('Cliente ' + response.id + ' creado');
                 this.snackBar.open('Creado exitosamente', '', {duration: 2000});
                 console.log('Recargando clientes');
                 this.getClientes();

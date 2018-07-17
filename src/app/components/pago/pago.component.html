@@ -22,7 +22,7 @@
 
       <ng-container matColumnDef="monto">
           <mat-header-cell *matHeaderCellDef>Monto</mat-header-cell>
-          <mat-cell *matCellDef="let pago"> {{pago.monto}}</mat-cell>
+          <mat-cell *matCellDef="let pago"> {{pago.monto | currency}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="porcentaje">

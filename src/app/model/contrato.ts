@@ -1,13 +1,13 @@
-import { Cliente } from '.';
+import { Cliente } from './cliente';
 import { EstadoCuenta } from './estadoCuenta';
 
 export class Contrato {
     id: number;
-    cliente: Cliente;
     periodo: number;
     montoTotal: number;
     cuotas: number;
     estado: EstadoCuenta;
+    cliente: Cliente;
     fecha: Date;
     contacto: string;
     link: string;

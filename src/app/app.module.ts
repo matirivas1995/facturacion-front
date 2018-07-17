@@ -24,6 +24,7 @@ import { routes } from './app.route';
 import { DialogoClienteComponent } from './components/dialogos/dialogo-cliente/dialogo-cliente.component';
 import { DialogoPagoComponent } from './components/dialogos/dialogo-pago/dialogo-pago.component';
 import { DialogoEstadoCuentaComponent } from './components/dialogos/dialogo-estado-cuenta/dialogo-estado-cuenta.component';
+import { DialogoContratoComponent } from './components/dialogos/dialogo-contrato/dialogo-contrato.component';
 
 @NgModule({
   declarations: [
@@ -35,10 +36,11 @@ import { DialogoEstadoCuentaComponent } from './components/dialogos/dialogo-esta
     FacturaComponent,
     DialogoClienteComponent,
     DialogoPagoComponent,
-    DialogoEstadoCuentaComponent
+    DialogoEstadoCuentaComponent,
+    DialogoContratoComponent
   ],
   entryComponents: [
-    DialogoClienteComponent, DialogoPagoComponent, DialogoEstadoCuentaComponent
+    DialogoClienteComponent, DialogoPagoComponent, DialogoEstadoCuentaComponent, DialogoContratoComponent
   ],
   imports: [
     BrowserModule,

@@ -42,7 +42,7 @@
 
       <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
       
-      <mat-row *matRowDef="let fila; columns: columnsToDisplay" class="fila"></mat-row>
+      <mat-row *matRowDef="let fila; columns: columnsToDisplay" (click)="seleccionar(fila)" class="fila"></mat-row>
       
     </mat-table>
 

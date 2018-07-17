@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 
 import { Cliente } from '../model/cliente';
+import { Id } from '../model';
 
 @Injectable()
 export class ClienteService {
@@ -18,10 +19,10 @@ export class ClienteService {
         .catch(this.handleError);
     }
 
-    create(cliente: Cliente): Promise<Response> {
+    create(cliente: Cliente): Promise<Id> {
         return this.http
         .post(this.serviceUrl, JSON.stringify(cliente), {headers: this.headers})
-        .toPromise()
+        .toPromise().then(response => response.json() as Id)
         .catch(this.handleError);
     }
 
