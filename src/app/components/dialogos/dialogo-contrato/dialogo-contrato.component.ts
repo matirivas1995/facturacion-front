@@ -29,7 +29,6 @@ export class DialogoContratoComponent implements OnInit {
   cuotas: number;
 
 
-
   constructor(
       private fb: FormBuilder,
       private dialogRef: MatDialogRef<DialogoClienteComponent>,

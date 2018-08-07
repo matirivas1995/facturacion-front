@@ -1,0 +1,29 @@
+<mat-grid-list  cols="3" >
+    <mat-grid-tile>
+        <mat-card>
+            <mat-card-title>Emitir Factura</mat-card-title>
+            <mat-card-subtitle>Te permitira imprimir una nueva factura</mat-card-subtitle>
+            <mat-card-content>
+                <button mat-raised-button color="primary" [routerLink]="['/facturas']"><mat-icon>printer</mat-icon></button>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-card>  
+            <mat-card-title>Administrar contratos y clientes</mat-card-title>
+            <mat-card-subtitle>Te permitira crear nuevos contratos y clientes</mat-card-subtitle>
+            <mat-card-content>
+                <button mat-raised-button color="primary" ng-href="" [routerLink]="['/contratos']"><mat-icon>face</mat-icon></button>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-card>
+            <mat-card-title>Administrar pagos</mat-card-title>
+            <mat-card-subtitle>Te permite ver el estado de cuenta de tus clientes y actualizar sus pagos realizados</mat-card-subtitle>
+            <mat-card-content>
+                <button mat-raised-button color="primary" [routerLink]="['/estados']"><mat-icon>payment</mat-icon></button>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

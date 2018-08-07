@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { EstadoCuenta, Pago } from '../../model';
+import { EstadoCuenta, Pago, Contrato } from '../../model';
 import { EstadoCuentaService } from '../../services/estadoCuenta.service';
 import { MatDialogConfig, MatSnackBar, MatDialog } from '@angular/material';
 import { DialogoEstadoCuentaComponent } from '../dialogos/dialogo-estado-cuenta/dialogo-estado-cuenta.component';
 import { PagoService } from '../../services/pago.service';
+import { ContratoService } from '../../services/contrato.service';
 
 @Component({
   selector: 'app-estado-cuenta',
@@ -12,30 +13,43 @@ import { PagoService } from '../../services/pago.service';
 })
 export class EstadoCuentaComponent implements OnInit {
 
+  Arr = Array;
   estados: EstadoCuenta[];
+  contratos: Contrato[];
+  estadoId: EstadoCuenta;
   estadoSeleccionado: EstadoCuenta;
-  columnsToDisplay = ['id', 'cuotasTotales', 'cuotasPagadas', 'montoTotal',
+  columnsToDisplay = ['razonSocial', 'cuotasTotales', 'montoTotal',
   'pagado', 'saldo'];
 
   constructor(private estadoCuentaService: EstadoCuentaService,
+              private contratoService: ContratoService,
               private pagoService: PagoService,
               public dialog: MatDialog,
               private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.getEstados();
+    this.getContratos();
   }
 
   getEstados() {
     this.estadoCuentaService.getEstadoCuentas()
       .then(estados => {
-        console.log(estados);
         this.estados = estados;
+        console.log(estados);
       });
   }
 
-  seleccionar(estado: EstadoCuenta) {
-    this.estadoSeleccionado = estado;
+  getContratos() {
+    this.contratoService.getFilterByPeriodo(2018)
+    .then(contras => {
+      this.contratos = contras;
+      console.log(contras);
+    });
+  }
+
+  seleccionar(contrato: Contrato) {
+    this.estadoSeleccionado = contrato.estado;
     console.log(this.estadoSeleccionado);
 
     const dialogConfig = new MatDialogConfig();

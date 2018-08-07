@@ -1,0 +1,58 @@
+<button mat-icon-button style="float:right" (click)="close()" matTooltip="Cerrar">
+    <mat-icon class="md-24">close</mat-icon>
+  </button>
+  <h2 mat-dialog-title>Nueva Factura</h2>
+  
+  <mat-dialog-content [formGroup]="form" novalidate>
+  <mat-list class="lista">
+      <mat-form-field class="fechia">
+          <input matInput
+                  placeholder="Fecha"  
+                  formControlName="Fecha">
+      </mat-form-field>
+      <mat-form-field class="fact">
+          <input matInput
+                  placeholder="Factura"  
+                  formControlName="Factura">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput
+                placeholder="Periodo"  
+                formControlName="Periodo">
+      </mat-form-field>
+      <mat-form-field class="listaa" >
+        <mat-select placeholder="Seleccionar Cliente"  formControlName="Clientes" [(ngModel)]="clienteseleccionado">
+          <mat-option *ngFor="let clienteseleccionado of clientes" [value]="clienteseleccionado">
+            {{ clienteseleccionado.razonSocial }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-icon-button (click)="getContrato()" [disabled]="!form.valid" matTooltip="Traer Contratos">
+        <mat-icon class="md-24">search</mat-icon>
+      </button> 
+      <mat-form-field class="listaa">
+        <mat-select placeholder="Seleccionar Pagos" formControlName="Pagos" [(ngModel)]="selec" multiple>
+          <mat-option *ngFor="let pagoseleccionado of pagos" [value]="pagoseleccionado">{{ pagoseleccionado.porcentaje }} % - {{ pagoseleccionado.monto  | currency:'PYG' }} </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-icon-button (click)="calcular()" [disabled]="!form.valid" matTooltip="Calcular Monto">
+        <mat-icon class="md-24">done</mat-icon>
+      </button> 
+      <mat-form-field class="lista">
+        <textarea matInput placeholder="Descripcion" formControlName="Descripcion" ></textarea>
+      </mat-form-field>
+      <p>El monto total es: {{this.montoTotal | currency:'PYG' }}</p>
+      
+  </mat-list>
+  
+  </mat-dialog-content>
+  
+  <mat-dialog-actions style="float: right">
+  
+  <button mat-icon-button (click)="save()" [disabled]="!form.valid" matTooltip="Guardar cambios">
+    <mat-icon class="md-24">save</mat-icon>
+  </button>   .
+  <button mat-icon-button (click)="print()" [disabled]="!form.valid" matTooltip="Guardar cambios">
+    <mat-icon class="md-24">printer</mat-icon>
+  </button>   
+  </mat-dialog-actions>

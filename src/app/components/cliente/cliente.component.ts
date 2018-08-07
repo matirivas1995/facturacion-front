@@ -35,7 +35,7 @@ export class ClienteComponent implements OnInit {
       const dialogConfig = new MatDialogConfig();
       dialogConfig.disableClose = true;
       dialogConfig.autoFocus = false;
-      dialogConfig.width = '400px';
+      dialogConfig.width = '500px';
       dialogConfig.data = new Cliente();
 
       const dialogRef = this.dialog.open(DialogoClienteComponent, dialogConfig);

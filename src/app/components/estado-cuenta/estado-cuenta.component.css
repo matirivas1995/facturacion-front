@@ -17,3 +17,8 @@ mat-card {
     bottom: 30px;
     z-index: 2;
 }
+
+.thumbnail{
+    float:left;
+
+}

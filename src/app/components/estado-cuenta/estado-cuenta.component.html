@@ -8,36 +8,42 @@
 
 <mat-card-content>
 
-    <mat-table [dataSource]='estados'>
+    <mat-table [dataSource]='contratos'>
 
-      <ng-container matColumnDef="id">
-          <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
-          <mat-cell *matCellDef="let estado"> {{estado.id}} </mat-cell>
+
+      <ng-container matColumnDef="razonSocial">
+        <mat-header-cell *matHeaderCellDef>Cliente</mat-header-cell>
+        <mat-cell *matCellDef="let contrato"> {{contrato.cliente.razonSocial}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="cuotasTotales">
           <mat-header-cell *matHeaderCellDef>Total de cuotas</mat-header-cell>
-          <mat-cell *matCellDef="let estado"> {{estado.cuotasTotales}}</mat-cell>
+          <mat-cell *matCellDef="let contrato"> 
+            <mat-list>
+                <mat-list-item class="thumbnail" *ngFor="let i of Arr(contrato.estado.cuotasPagadas).fill(1)">
+                    <mat-icon  color="accent" matListIcon>insert_drive_file</mat-icon>
+                </mat-list-item>
+                <mat-list-item class="thumbnail" *ngFor="let i of Arr(contrato.estado.cuotasTotales - contrato.estado.cuotasPagadas).fill(1)">
+                    <mat-icon  color="warn" matListIcon>insert_drive_file</mat-icon>
+                </mat-list-item>
+            </mat-list>
+        </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="cuotasPagadas">
-          <mat-header-cell *matHeaderCellDef>Total de cuotas Pagadas</mat-header-cell>
-          <mat-cell *matCellDef="let estado"> {{estado.cuotasPagadas}}</mat-cell>
-      </ng-container>
 
       <ng-container matColumnDef="montoTotal">
           <mat-header-cell *matHeaderCellDef>Monto total </mat-header-cell>
-          <mat-cell *matCellDef="let estado"> {{estado.montoTotal | currency }}</mat-cell>
+          <mat-cell *matCellDef="let contrato"> {{contrato.estado.montoTotal | currency }}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="pagado">
           <mat-header-cell *matHeaderCellDef>Pagado</mat-header-cell>
-          <mat-cell *matCellDef="let estado"> {{estado.pagado | currency }} </mat-cell>
+          <mat-cell *matCellDef="let contrato"> {{contrato.estado.pagado | currency }} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="saldo">
           <mat-header-cell *matHeaderCellDef>Saldo</mat-header-cell>
-          <mat-cell *matCellDef="let estado"> {{estado.saldo | currency }} </mat-cell>
+          <mat-cell *matCellDef="let contrato"> {{contrato.estado.saldo | currency }} </mat-cell>
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>

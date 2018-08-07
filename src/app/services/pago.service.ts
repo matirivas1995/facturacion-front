@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 
 import { Pago } from '../model/pago';
+import { EstadoCuenta } from '../model';
 
 @Injectable()
 export class PagoService {
@@ -45,6 +46,12 @@ export class PagoService {
         .catch(this.handleError);
     }
 
+    getFilterByEstado(estado: EstadoCuenta) {
+        return this.http.get(this.serviceUrl + '/Pendiente/' + estado.id)
+        .toPromise()
+        .then(response => response.json() as Pago[])
+        .catch(this.handleError);
+    }
     private handleError(error: any): Promise<any> {
         console.error('Error', error);
         return Promise.reject(error.message || error);

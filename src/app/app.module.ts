@@ -25,6 +25,9 @@ import { DialogoClienteComponent } from './components/dialogos/dialogo-cliente/d
 import { DialogoPagoComponent } from './components/dialogos/dialogo-pago/dialogo-pago.component';
 import { DialogoEstadoCuentaComponent } from './components/dialogos/dialogo-estado-cuenta/dialogo-estado-cuenta.component';
 import { DialogoContratoComponent } from './components/dialogos/dialogo-contrato/dialogo-contrato.component';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { DialogoFacturaComponent } from './components/dialogos/dialogo-factura/dialogo-factura.component';
+
 
 @NgModule({
   declarations: [
@@ -37,10 +40,12 @@ import { DialogoContratoComponent } from './components/dialogos/dialogo-contrato
     DialogoClienteComponent,
     DialogoPagoComponent,
     DialogoEstadoCuentaComponent,
-    DialogoContratoComponent
+    DialogoContratoComponent,
+    InicioComponent,
+    DialogoFacturaComponent
   ],
   entryComponents: [
-    DialogoClienteComponent, DialogoPagoComponent, DialogoEstadoCuentaComponent, DialogoContratoComponent
+    DialogoClienteComponent, DialogoPagoComponent, DialogoEstadoCuentaComponent, DialogoContratoComponent, DialogoFacturaComponent
   ],
   imports: [
     BrowserModule,

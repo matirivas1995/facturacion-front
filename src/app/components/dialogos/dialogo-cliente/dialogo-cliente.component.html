@@ -6,34 +6,41 @@
 <mat-dialog-content [formGroup]="form" novalidate>
 <mat-list>
 
-  <mat-form-field>
+  <mat-form-field class="lista">
       <input matInput
               placeholder="RazonSocial"  
               formControlName="RazonSocial">
+    <mat-hint align="start">ej. Ritel Group S.A. </mat-hint>
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field class="lista">
     <input matInput
             placeholder="Ruc"  
             formControlName="Ruc">
-</mat-form-field>
+    <mat-hint align="start">ej 80089270-4, 1356143-0 </mat-hint>
+  </mat-form-field>
 
-<mat-form-field>
+<mat-form-field class="lista">
   <input matInput
           placeholder="Direccion"  
           formControlName="Direccion">
+          <mat-hint align="start">ej Manuel Blinder esq Emigdia Reisofer</mat-hint>
 </mat-form-field>
 
-<mat-form-field>
+<mat-form-field class="lista">
   <input matInput
           placeholder="RepresentanteLegal"  
           formControlName="RepresentanteLegal">
+          <mat-hint align="start">ej Cinthia Tellez </mat-hint>
 </mat-form-field>
 
-<mat-form-field>
+<mat-form-field class="lista">
   <input matInput
+          type="number"
           placeholder="Ci"  
           formControlName="Ci">
+          <mat-hint align="start">ej 1356143</mat-hint>
+  
 </mat-form-field>
 
 

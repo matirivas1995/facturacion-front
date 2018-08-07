@@ -16,7 +16,13 @@
     <input matInput
             placeholder="MontoTotal"  
             formControlName="MontoTotal">
-</mat-form-field>
+  </mat-form-field>
+
+  <mat-form-field class="listaa">
+    <mat-select placeholder="Seleccionar Pagos" formControlName="Pagos" [(ngModel)]="selec">
+      <mat-option *ngFor="let pagoseleccionado of pagos" [value]="pagoseleccionado">{{ pagoseleccionado.porcentaje }} % - {{ pagoseleccionado.monto  | currency:'PYG' }} </mat-option>
+    </mat-select>
+  </mat-form-field>
 
 </mat-list>
 

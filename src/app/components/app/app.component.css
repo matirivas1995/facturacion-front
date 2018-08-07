@@ -1,24 +1,28 @@
 mat-sidenav-container, .my-content {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../../assets/login.jpg');
+}
+
+md-sidenav-layout {
+  background: rgba(0, 0, 0, .03);
+}
+
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%  !important;
+} 
+.sidenav {
+  width: 300px;
+}
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+
   
-  md-sidenav-layout {
-    background: rgba(0, 0, 0, .03);
-  }
-  .sidenav {
-    width: 300px;
-  }
-  .fill-remaining-space {
-    flex: 1 1 auto;
-  }
-  
-    mat-toolbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    width: 100%  !important;
-  } 
-  
+

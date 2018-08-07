@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 
 import { Contrato } from '../model/contrato';
+import { Cliente, EstadoCuenta } from '../model';
 
 @Injectable()
 export class ContratoService {
@@ -40,6 +41,27 @@ export class ContratoService {
 
     getFilterById(contrato: Contrato): Promise<Contrato[]> {
         return this.http.get(this.serviceUrl + '/' + contrato.id)
+        .toPromise()
+        .then(response => response.json() as Contrato[])
+        .catch(this.handleError);
+    }
+
+    getFilterByCliente(cliente: Cliente, periodo: number): Promise<Contrato> {
+        return this.http.get(this.serviceUrl + '/' + periodo + '/' + cliente.id)
+        .toPromise()
+        .then(response => response.json() as Contrato)
+        .catch(this.handleError);
+    }
+
+    getFilterByEstado(estado: EstadoCuenta, periodo: number): Promise<Contrato> {
+        return this.http.get(this.serviceUrl + '/estados/' + periodo + '/' + estado.id )
+        .toPromise()
+        .then(response => response.json() as Contrato)
+        .catch(this.handleError);
+    }
+
+    getFilterByPeriodo(periodo: number): Promise<Contrato[]> {
+        return this.http.get(this.serviceUrl + '/periodo/' + periodo)
         .toPromise()
         .then(response => response.json() as Contrato[])
         .catch(this.handleError);

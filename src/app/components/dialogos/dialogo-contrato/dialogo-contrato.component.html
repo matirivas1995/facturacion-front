@@ -25,80 +25,85 @@
       <input matInput
               placeholder="RazonSocial"  
               formControlName="RazonSocial">
+              <mat-hint align="start">ej. Ritel Group S.A. </mat-hint>
     </mat-form-field>
 
     <mat-form-field *ngIf="form.value.Options === 'nuevo'">
       <input matInput
               placeholder="Ruc"  
               formControlName="Ruc">
+              <mat-hint align="start">ej 80089270-4, 1356143-0 </mat-hint>
     </mat-form-field>
 
     <mat-form-field *ngIf="form.value.Options === 'nuevo'">
       <input matInput
               placeholder="Direccion"  
               formControlName="Direccion">
+              <mat-hint align="start">ej Manuel Blinder esq Emigdia Reisofer</mat-hint>
     </mat-form-field>
 
     <mat-form-field *ngIf="form.value.Options === 'nuevo'">
       <input matInput
               placeholder="RepresentanteLegal"  
               formControlName="RepresentanteLegal">
+              <mat-hint align="start">ej Cinthia Tellez </mat-hint>
     </mat-form-field>
 
     <mat-form-field *ngIf="form.value.Options === 'nuevo'">
       <input matInput
               placeholder="Ci"  
               formControlName="Ci">
+              <mat-hint align="start">ej 1356143</mat-hint>
     </mat-form-field>
 
     <!-- MAS DFORMULARIO    -->
 
     <mat-form-field>
-      <input matInput
+      <input matInput type="number" size="4"
               placeholder="Periodo"  
               formControlName="Periodo">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput
+      <input matInput type="number" 
               placeholder="Monto Total"  
               formControlName="MontoTotal">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput
+      <input matInput type="number"
               placeholder="Cuotas"  
               formControlName="Cuotas">
     </mat-form-field>
 
-    <mat-form-field *ngIf="form.value.Cuotas > 0 && form.value.Cuotas < 5  ">
-      <input matInput
+    <mat-form-field class="cuotas" *ngIf="form.value.Cuotas > 0 && form.value.Cuotas < 5">
+      <input matInput type="number"
               placeholder="Cuota 1"  
               formControlName="Cuota1">
+              <p> % </p>
     </mat-form-field>
-
-    <mat-form-field *ngIf="form.value.Cuotas > 1 && form.value.Cuotas < 5">
-      <input matInput
+    <mat-form-field  class="cuotas" *ngIf="form.value.Cuotas > 1 && form.value.Cuotas < 5">
+      <input matInput type="number"
               placeholder="Cuota 2"  
               formControlName="Cuota2">
+              <p> % </p>
     </mat-form-field>
-
-    <mat-form-field *ngIf="form.value.Cuotas > 2 && form.value.Cuotas < 5">
-      <input matInput
+    <mat-form-field class="cuotas" *ngIf="form.value.Cuotas > 2 && form.value.Cuotas < 5">
+      <input matInput type="number"
               placeholder="Cuota 3"  
               formControlName="Cuota3">
+              <p> % </p>
     </mat-form-field>
-
-    <mat-form-field *ngIf="form.value.Cuotas > 3 && form.value.Cuotas < 5">
-      <input matInput
+    <mat-form-field class="cuotas" *ngIf="form.value.Cuotas > 3 && form.value.Cuotas < 5">
+      <input matInput type="number"
               placeholder="Cuota 4"  
               formControlName="Cuota4">
+              <p> % </p>
     </mat-form-field>
-
     <mat-form-field>
-      <input matInput
-              placeholder="Fecha"  
-              formControlName="Fecha">
+        <input matInput formControlName="Fecha" [matDatepicker]="picker" placeholder="Fecha del Contrato">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field>
