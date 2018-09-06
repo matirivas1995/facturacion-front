@@ -10,11 +10,6 @@
 
     <mat-table [dataSource]='contratos'>
 
-      <ng-container matColumnDef="id">
-          <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
-          <mat-cell *matCellDef="let contrato"> {{contrato.id}} </mat-cell>
-      </ng-container>
-
       <ng-container matColumnDef="cliente">
           <mat-header-cell *matHeaderCellDef>Cliente</mat-header-cell>
           <mat-cell *matCellDef="let contrato"> {{contrato.cliente.razonSocial}}</mat-cell>
@@ -33,11 +28,6 @@
       <ng-container matColumnDef="cuotas">
           <mat-header-cell *matHeaderCellDef>Cuotas</mat-header-cell>
           <mat-cell *matCellDef="let contrato"> {{contrato.cuotas}} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="estado">
-          <mat-header-cell *matHeaderCellDef>Estado de cuenta</mat-header-cell>
-          <mat-cell *matCellDef="let contrato"> {{contrato.estado.id}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="fecha">

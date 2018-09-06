@@ -80,6 +80,7 @@ export class ClienteComponent implements OnInit {
       dialogRef.afterClosed().subscribe(
         data => {
           if (data.action === 'save') {
+            console.log(data.cliente);
             this.clienteService.update(data.cliente)
               .then((response) => {
                 if (response.ok) {

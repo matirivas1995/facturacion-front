@@ -28,16 +28,7 @@ export class EstadoCuentaComponent implements OnInit {
               private snackBar: MatSnackBar) { }
 
   ngOnInit() {
-    this.getEstados();
     this.getContratos();
-  }
-
-  getEstados() {
-    this.estadoCuentaService.getEstadoCuentas()
-      .then(estados => {
-        this.estados = estados;
-        console.log(estados);
-      });
   }
 
   getContratos() {
@@ -61,42 +52,27 @@ export class EstadoCuentaComponent implements OnInit {
                         };
 
     const dialogRef = this.dialog.open(DialogoEstadoCuentaComponent, dialogConfig);
-
     dialogRef.afterClosed().subscribe(
       data => {
         if (data.action === 'save') {
-          this.estadoCuentaService.update(data.estado)
-            .then((response) => {
-              if (response.ok) {
-                console.log('Estado ' + data.estado.id + ' modificado');
-                this.snackBar.open('Estado modificado', '', {duration: 2000});
-                console.log('Recargando Pagos');
-                this.getEstados();
-              } else {
-                console.log('Estado ' + data.estado.id + ' no pudo ser modificado');
-                this.snackBar.open('Error al modificar Estado de cuenta', '', {duration: 2000});
-              }
-                });
-            } else if (data.action === 'delete') {
-              this.delete(data.estado);
-            } else {
-              console.log(data);
-            }
-          }
-        );
+          this.getContratos();
+        } else {
+          console.log(data);
+        }
+      });
   }
 
 
-  delete(estado: EstadoCuenta) {
-      this.estadoCuentaService.delete(estado)
+  delete(contrato: Contrato) {
+      this.estadoCuentaService.delete(contrato.estado)
       .then((response) => {
         if (response.ok) {
-          console.log('Estado ' + estado.id + ' eliminado');
+          console.log('Estado ' + contrato.estado.id + ' eliminado');
           this.snackBar.open('Estado eliminado', '', {duration: 2000});
           console.log('Recargando Estados de Cuenta');
-          this.getEstados();
+          this.getContratos();
         } else {
-          console.log('Estado ' + estado.id + ' no pudo ser eliminado');
+          console.log('Estado ' + contrato.estado.id + ' no pudo ser eliminado');
           this.snackBar.open('Error al eliminar estado de cuenta', '', {duration: 2000});
         }
       });

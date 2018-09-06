@@ -138,4 +138,6 @@ export class DialogoFacturaComponent implements OnInit {
     doc.save(this.ultimaFact + '.pdf');
   }
 
+  save(){}
+
 }

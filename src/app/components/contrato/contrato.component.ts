@@ -4,6 +4,7 @@ import { ContratoService } from '../../services/contrato.service';
 import { MatDialogConfig, MatDialog, MatSnackBar } from '@angular/material';
 import { DialogoClienteComponent } from '../dialogos/dialogo-cliente/dialogo-cliente.component';
 import { DialogoContratoComponent } from '../dialogos/dialogo-contrato/dialogo-contrato.component';
+import { AppComponent } from '../app/app.component';
 
 @Component({
   selector: 'app-contrato',
@@ -12,7 +13,8 @@ import { DialogoContratoComponent } from '../dialogos/dialogo-contrato/dialogo-c
 })
 export class ContratoComponent implements OnInit {
   contratos: Contrato[];
-  columnsToDisplay = ['id', 'cliente', 'periodo', 'montoTotal', 'cuotas', 'estado', 'fecha', 'Contacto', 'link'];
+  columnsToDisplay = [ 'cliente', 'periodo', 'montoTotal', 'cuotas', 'fecha', 'Contacto', 'link'];
+  title: AppComponent;
 
   constructor(private contratoService: ContratoService,
               public dialog: MatDialog,

@@ -49,6 +49,7 @@ export class PagoComponent implements OnInit {
         dialogRef.afterClosed().subscribe(
           data => {
             if (data.action === 'save') {
+              console.log(data.pago);
               this.pagoService.update(data.pago)
                 .then((response) => {
                   if (response.ok) {

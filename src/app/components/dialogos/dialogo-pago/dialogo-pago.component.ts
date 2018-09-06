@@ -14,6 +14,13 @@ export class DialogoPagoComponent implements OnInit {
   form: FormGroup;
   pago: Pago;
   operation: String;
+  today = new Date();
+  todayStr: String;
+  estados = [
+    {value: 'Pendiente', viewValue: 'Pendiente'},
+    {value: 'Pagado', viewValue: 'Pagado'}
+  ];
+  selec: string;
 
   constructor(
       private fb: FormBuilder,
@@ -24,11 +31,12 @@ export class DialogoPagoComponent implements OnInit {
       }
 
   ngOnInit() {
+      this.getDateToday();
       this.form = this.fb.group({
           Monto: [this.pago.monto, Validators.required],
-          Fecha: [this.pago.fecha],
+          Fecha: [this.todayStr],
           Porcentaje: [this.pago.porcentaje, Validators.required],
-          Estado: [this.pago.estado, Validators.required]
+          Estado: [this.estados, Validators.required]
       });
   }
 
@@ -38,18 +46,25 @@ export class DialogoPagoComponent implements OnInit {
 
   save() {
       this.pago.monto = this.form.value.Monto;
-      this.pago.fecha = this.form.value.Fecha;
+      this.pago.fecha = new Date(this.form.value.Fecha);
       this.pago.porcentaje = this.form.value.Porcentaje;
       this.pago.estado = this.form.value.Estado;
-
+      console.log(this.pago);
       this.dialogRef.close({action: 'save',
-                            cliente: this.pago});
+                            pago: this.pago});
   }
 
     delete() {
         this.dialogRef.close({action: 'delete',
-                              cliente: this.pago});
+                              pago: this.pago});
     }
+
+    getDateToday() {
+        const dd: number = this.today.getDate();
+        const mm: number = this.today.getMonth() + 1;
+        const yy: number = this.today.getFullYear();
+        this.todayStr = dd + '/' + mm + '/' + yy;
+      }
 
 
 }

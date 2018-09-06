@@ -6,17 +6,11 @@
 <mat-dialog-content [formGroup]="form" novalidate>
 <mat-list>
 
-  <mat-form-field>
-      <input matInput
-              placeholder="CuotasTotales"  
-              formControlName="CuotasTotales">
-  </mat-form-field>
+  <h4>Cuotas Pendientes</h4>
+  <p>{{cuo}}</p>
 
-  <mat-form-field>
-    <input matInput
-            placeholder="MontoTotal"  
-            formControlName="MontoTotal">
-  </mat-form-field>
+  <h4>Saldo</h4>
+  <p>{{sal  | currency:'PYG'  }}</p>
 
   <mat-form-field class="listaa">
     <mat-select placeholder="Seleccionar Pagos" formControlName="Pagos" [(ngModel)]="selec">
