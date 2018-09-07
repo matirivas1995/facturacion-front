@@ -1,10 +1,15 @@
+
 <mat-card>
 
+    <mat-chip-list [(ngModel)]="year">
+        <mat-chip color=primary *ngFor="let chic of chips" (click)="onRowClicked(chic)" >{{chic}}</mat-chip>
+    </mat-chip-list>
+    
   <button mat-fab class="page-action" id="add" color="primary" (click)="crear()" >
       <mat-icon class="md-24">add</mat-icon>
   </button>
-
-<mat-card-title>Contrato</mat-card-title>
+<br>
+<mat-card-title>Contratos</mat-card-title>
 
 <mat-card-content>
 
@@ -33,16 +38,6 @@
       <ng-container matColumnDef="fecha">
         <mat-header-cell *matHeaderCellDef>Fecha</mat-header-cell>
         <mat-cell *matCellDef="let contrato"> {{contrato.fecha}} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="Contacto">
-        <mat-header-cell *matHeaderCellDef>Contacto</mat-header-cell>
-        <mat-cell *matCellDef="let contrato"> {{contrato.contacto}} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="link">
-        <mat-header-cell *matHeaderCellDef>Link</mat-header-cell>
-        <mat-cell *matCellDef="let contrato"><a>{{contrato.link }}</a> </mat-cell>
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>

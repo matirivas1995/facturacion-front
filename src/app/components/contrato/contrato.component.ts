@@ -13,23 +13,33 @@ import { AppComponent } from '../app/app.component';
 })
 export class ContratoComponent implements OnInit {
   contratos: Contrato[];
-  columnsToDisplay = [ 'cliente', 'periodo', 'montoTotal', 'cuotas', 'fecha', 'Contacto', 'link'];
+  columnsToDisplay = [ 'cliente', 'periodo', 'montoTotal', 'cuotas', 'fecha'];
   title: AppComponent;
+  chips: any;
+  year: any;
 
   constructor(private contratoService: ContratoService,
               public dialog: MatDialog,
               private snackBar: MatSnackBar) { }
 
   ngOnInit() {
+    this.year = 2018;
     this.getContratos();
+    this.chips = ['2016' , '2017' , '2018' , '2019'];
+    console.log(this.year);
   }
 
   getContratos() {
-    this.contratoService.getContratos()
+    this.contratoService.getFilterByPeriodo(this.year)
       .then(contratos => {
         console.log(contratos);
         this.contratos = contratos;
       });
+  }
+
+  onRowClicked(year: any) {
+    this.year = year;
+    this.getContratos();
   }
 
 
@@ -37,7 +47,7 @@ export class ContratoComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = false;
-    dialogConfig.width = '400px';
+    dialogConfig.width = '500px';
     dialogConfig.data = new Contrato();
 
     const dialogRef = this.dialog.open(DialogoContratoComponent, dialogConfig);

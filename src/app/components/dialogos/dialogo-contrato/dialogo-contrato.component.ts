@@ -64,8 +64,6 @@ export class DialogoContratoComponent implements OnInit {
       MontoTotal: [null, Validators.required],
       Cuotas: [null, Validators.required],
       Fecha: [null, Validators.required],
-      Contacto: [null, Validators.required],
-      Link: [null, Validators.required],
       Cuota1: [null],
       Cuota2: [null],
       Cuota3: [null],
