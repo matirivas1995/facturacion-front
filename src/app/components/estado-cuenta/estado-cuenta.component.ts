@@ -32,7 +32,7 @@ export class EstadoCuentaComponent implements OnInit {
   ngOnInit() {
     this.year = 2018;
     this.getContratos();
-    this.chips = ['2016' , '2017' , '2018' , '2019'];
+    this.chips = [ '2017' , '2018' , '2019'];
     console.log(this.year);
   }
 

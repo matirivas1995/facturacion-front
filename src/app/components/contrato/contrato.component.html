@@ -37,7 +37,7 @@
 
       <ng-container matColumnDef="fecha">
         <mat-header-cell *matHeaderCellDef>Fecha</mat-header-cell>
-        <mat-cell *matCellDef="let contrato"> {{contrato.fecha}} </mat-cell>
+        <mat-cell *matCellDef="let contrato"> {{contrato.fecha | date }} </mat-cell>
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>

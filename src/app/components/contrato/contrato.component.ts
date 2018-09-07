@@ -25,7 +25,7 @@ export class ContratoComponent implements OnInit {
   ngOnInit() {
     this.year = 2018;
     this.getContratos();
-    this.chips = ['2016' , '2017' , '2018' , '2019'];
+    this.chips = [ '2017' , '2018' , '2019'];
     console.log(this.year);
   }
 
@@ -47,7 +47,7 @@ export class ContratoComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = false;
-    dialogConfig.width = '500px';
+    dialogConfig.width = '400px';
     dialogConfig.data = new Contrato();
 
     const dialogRef = this.dialog.open(DialogoContratoComponent, dialogConfig);

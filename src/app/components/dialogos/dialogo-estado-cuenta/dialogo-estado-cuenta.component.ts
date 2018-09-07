@@ -66,9 +66,9 @@ export class DialogoEstadoCuentaComponent implements OnInit {
 
     getDateToday() {
         const dd: number = this.today.getDate();
-        const mm: number = this.today.getMonth() + 1;
+        const mm: number = this.today.getMonth();
         const yy: number = this.today.getFullYear();
-        this.hoy = new Date(dd , mm , yy);
+        this.hoy = new Date(yy , mm , dd);
       }
 
 }
