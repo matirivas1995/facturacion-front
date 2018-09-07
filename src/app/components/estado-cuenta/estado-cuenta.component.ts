@@ -20,6 +20,8 @@ export class EstadoCuentaComponent implements OnInit {
   estadoSeleccionado: EstadoCuenta;
   columnsToDisplay = ['razonSocial', 'cuotasTotales', 'montoTotal',
   'pagado', 'saldo'];
+  chips: any;
+  year: any;
 
   constructor(private estadoCuentaService: EstadoCuentaService,
               private contratoService: ContratoService,
@@ -28,15 +30,23 @@ export class EstadoCuentaComponent implements OnInit {
               private snackBar: MatSnackBar) { }
 
   ngOnInit() {
+    this.year = 2018;
     this.getContratos();
+    this.chips = ['2016' , '2017' , '2018' , '2019'];
+    console.log(this.year);
   }
 
   getContratos() {
-    this.contratoService.getFilterByPeriodo(2018)
+    this.contratoService.getFilterByPeriodo(this.year)
     .then(contras => {
       this.contratos = contras;
       console.log(contras);
     });
+  }
+
+  onRowClicked(year: any) {
+    this.year = year;
+    this.getContratos();
   }
 
   seleccionar(contrato: Contrato) {
